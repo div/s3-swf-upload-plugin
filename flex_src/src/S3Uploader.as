@@ -118,6 +118,7 @@ package  {
 					// ExternalInterface.call('s3_swf.jsLog',(i+1)+' of '+(remainingSpots)+' files added to the queue array');
 				}
 				// ExternalInterface.call('s3_swf.jsLog','Multiple files added to the queue array');
+				
 			} else {
 				// Adding one single file to the queue array
 				// ExternalInterface.call('s3_swf.jsLog','Adding single file to the queue array...');
@@ -133,6 +134,8 @@ package  {
 				// ExternalInterface.call('s3_swf.jsLog','Calling onQueueSizeLimitReached...');
 				ExternalInterface.call('s3_swf.onQueueSizeLimitReached',this.queue.toJavascript());
 				// ExternalInterface.call('s3_swf.jsLog','onQueueSizeLimitReached called');
+			} else {
+				ExternalInterface.call('s3_swf.onAllFilesAdded');
 			}
 
 		}
