@@ -15,6 +15,7 @@ module S3SwfUpload
     	buttonOverPath          = options[:buttonOverPath] || '/flash/s3_over_button.gif'
     	buttonDownPath          = options[:buttonDownPath] || '/flash/s3_down_button.gif'
     	                                 
+    	onAllFilesAdded				  = options[:onAllFilesAdded] || false
     	onFileAdd							  = options[:onFileAdd] || false		
     	onFileRemove						= options[:onFileRemove] || false
     	onFileSizeLimitReached 	= options[:onFileSizeLimitReached] || false	
@@ -71,6 +72,9 @@ module S3SwfUpload
       out << "buttonOverPath: '#{buttonOverPath}',\n" if buttonOverPath
       out << "buttonDownPath: '#{buttonDownPath}',\n" if buttonDownPath
       
+      out << %(onAllFilesAdded: function(){
+                  #{onAllFilesAdded}
+                },) if onAllFilesAdded
       out << %(onFileAdd: function(file){
                 #{onFileAdd}
               },) if onFileAdd
